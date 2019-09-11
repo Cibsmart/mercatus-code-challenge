@@ -21,7 +21,8 @@ class SubscriptionTest extends TestCase
 
         $this->assertCount(1, Subscriber::all());
 
-        $response->assertRedirect(route('subscribed'));
+        $response->assertStatus(302)
+            ->assertRedirect(route('subscribed'));
     }
 
     /** @test */
